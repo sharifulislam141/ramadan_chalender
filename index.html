@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>২০২৫ সালের রমজান ক্যালেন্ডার - বাংলাদেশ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: backgroundPulse 10s infinite alternate;
+        }
+
+        @keyframes backgroundPulse {
+            0% { background: linear-gradient(135deg, #e0f7fa, #b2ebf2); }
+            100% { background: linear-gradient(135deg, #b2ebf2, #e0f7fa); }
+        }
+
+        h1 {
+            color: #1a237e;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .calendar {
+            width: 100%;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: linear-gradient(45deg, #34495e, #2c3e50);
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            animation: slideIn 0.8s ease;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        td {
+            background: #ecf0f1;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        tr {
+            opacity: 0;
+            animation: rowReveal 0.5s ease forwards;
+        }
+
+        /* প্রতিটি সারির জন্য ক্রমিক বিলম্ব */
+        tr:nth-child(1) { animation-delay: 0.1s; }
+        tr:nth-child(2) { animation-delay: 0.2s; }
+        tr:nth-child(3) { animation-delay: 0.3s; }
+        tr:nth-child(4) { animation-delay: 0.4s; }
+        tr:nth-child(5) { animation-delay: 0.5s; }
+        tr:nth-child(6) { animation-delay: 0.6s; }
+        tr:nth-child(7) { animation-delay: 0.7s; }
+        tr:nth-child(8) { animation-delay: 0.8s; }
+        tr:nth-child(9) { animation-delay: 0.9s; }
+        tr:nth-child(10) { animation-delay: 1s; }
+        tr:nth-child(11) { animation-delay: 1.1s; }
+        tr:nth-child(12) { animation-delay: 1.2s; }
+        tr:nth-child(13) { animation-delay: 1.3s; }
+        tr:nth-child(14) { animation-delay: 1.4s; }
+        tr:nth-child(15) { animation-delay: 1.5s; }
+        tr:nth-child(16) { animation-delay: 1.6s; }
+        tr:nth-child(17) { animation-delay: 1.7s; }
+        tr:nth-child(18) { animation-delay: 1.8s; }
+        tr:nth-child(19) { animation-delay: 1.9s; }
+        tr:nth-child(20) { animation-delay: 2s; }
+        tr:nth-child(21) { animation-delay: 2.1s; }
+        tr:nth-child(22) { animation-delay: 2.2s; }
+        tr:nth-child(23) { animation-delay: 2.3s; }
+        tr:nth-child(24) { animation-delay: 2.4s; }
+        tr:nth-child(25) { animation-delay: 2.5s; }
+        tr:nth-child(26) { animation-delay: 2.6s; }
+        tr:nth-child(27) { animation-delay: 2.7s; }
+        tr:nth-child(28) { animation-delay: 2.8s; }
+        tr:nth-child(29) { animation-delay: 2.9s; }
+        tr:nth-child(30) { animation-delay: 3s; }
+
+        @keyframes rowReveal {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        tr.highlight td {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            color: white;
+            opacity: 1;
+            animation: pulseHighlight 1.5s infinite;
+        }
+
+        @keyframes pulseHighlight {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        tr:hover td {
+            opacity: 0.8;
+            transform: scale(1.05);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <h1>২০২৫ সালের রমজান ক্যালেন্ডার - বাংলাদেশ</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>রোজা</th>
+                    <th>তারিখ</th>
+                    <th>সেহরি শুরু</th>
+                    <th>সেহরি শেষ</th>
+                    <th>ইফতার</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBody">
+                <tr data-date="2025-03-02">
+                    <td>১ম রোজা</td>
+                    <td>২ মার্চ</td>
+                    <td>৪:৫০ পূর্বাহ্ন</td>
+                    <td>৫:৫০ পূর্বাহ্ন</td>
+                    <td>৬:১০ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-03">
+                    <td>২য় রোজা</td>
+                    <td>৩ মার্চ</td>
+                    <td>৪:৪৯ পূর্বাহ্ন</td>
+                    <td>৫:৪৯ পূর্বাহ্ন</td>
+                    <td>৬:১১ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-04">
+                    <td>৩য় রোজা</td>
+                    <td>৪ মার্চ</td>
+                    <td>৪:৪৮ পূর্বাহ্ন</td>
+                    <td>৫:৪৮ পূর্বাহ্ন</td>
+                    <td>৬:১২ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-05">
+                    <td>৪র্থ রোজা</td>
+                    <td>৫ মার্চ</td>
+                    <td>৪:৪৭ পূর্বাহ্ন</td>
+                    <td>৫:৪৭ পূর্বাহ্ন</td>
+                    <td>৬:১৩ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-06">
+                    <td>৫ম রোজা</td>
+                    <td>৬ মার্চ</td>
+                    <td>৪:৪৬ পূর্বাহ্ন</td>
+                    <td>৫:৪৬ পূর্বাহ্ন</td>
+                    <td>৬:১৪ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-07">
+                    <td>৬ষ্ঠ রোজা</td>
+                    <td>৭ মার্চ</td>
+                    <td>৪:৪৫ পূর্বাহ্ন</td>
+                    <td>৫:৪৫ পূর্বাহ্ন</td>
+                    <td>৬:১৫ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-08">
+                    <td>৭ম রোজা</td>
+                    <td>৮ মার্চ</td>
+                    <td>৪:৪৪ পূর্বাহ্ন</td>
+                    <td>৫:৪৪ পূর্বাহ্ন</td>
+                    <td>৬:১৬ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-09">
+                    <td>৮ম রোজা</td>
+                    <td>৯ মার্চ</td>
+                    <td>৪:৪৩ পূর্বাহ্ন</td>
+                    <td>৫:৪৩ পূর্বাহ্ন</td>
+                    <td>৬:১৭ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-10">
+                    <td>৯ম রোজা</td>
+                    <td>১০ মার্চ</td>
+                    <td>৪:৪২ পূর্বাহ্ন</td>
+                    <td>৫:৪২ পূর্বাহ্ন</td>
+                    <td>৬:১৮ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-11">
+                    <td>১০ম রোজা</td>
+                    <td>১১ মার্চ</td>
+                    <td>৪:৪১ পূর্বাহ্ন</td>
+                    <td>৫:৪১ পূর্বাহ্ন</td>
+                    <td>৬:১৯ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-12">
+                    <td>১১তম রোজা</td>
+                    <td>১২ মার্চ</td>
+                    <td>৪:৪০ পূর্বাহ্ন</td>
+                    <td>৫:৪০ পূর্বাহ্ন</td>
+                    <td>৬:২০ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-13">
+                    <td>১২তম রোজা</td>
+                    <td>১৩ মার্চ</td>
+                    <td>৪:৩৯ পূর্বাহ্ন</td>
+                    <td>৫:৩৯ পূর্বাহ্ন</td>
+                    <td>৬:২১ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-14">
+                    <td>১৩তম রোজা</td>
+                    <td>১৪ মার্চ</td>
+                    <td>৪:৩৮ পূর্বাহ্ন</td>
+                    <td>৫:৩৮ পূর্বাহ্ন</td>
+                    <td>৬:২২ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-15">
+                    <td>১৪তম রোজা</td>
+                    <td>১৫ মার্চ</td>
+                    <td>৪:৩৭ পূর্বাহ্ন</td>
+                    <td>৫:৩৭ পূর্বাহ্ন</td>
+                    <td>৬:২৩ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-16">
+                    <td>১৫তম রোজা</td>
+                    <td>১৬ মার্চ</td>
+                    <td>৪:৩৬ পূর্বাহ্ন</td>
+                    <td>৫:৩৬ পূর্বাহ্ন</td>
+                    <td>৬:২৪ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-17">
+                    <td>১৬তম রোজা</td>
+                    <td>১৭ মার্চ</td>
+                    <td>৪:৩৫ পূর্বাহ্ন</td>
+                    <td>৫:৩৫ পূর্বাহ্ন</td>
+                    <td>৬:২৫ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-18">
+                    <td>১৭তম রোজা</td>
+                    <td>১৮ মার্চ</td>
+                    <td>৪:৩৪ পূর্বাহ্ন</td>
+                    <td>৫:৩৪ পূর্বাহ্ন</td>
+                    <td>৬:২৬ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-19">
+                    <td>১৮তম রোজা</td>
+                    <td>১৯ মার্চ</td>
+                    <td>৪:৩৩ পূর্বাহ্ন</td>
+                    <td>৫:৩৩ পূর্বাহ্ন</td>
+                    <td>৬:২৭ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-20">
+                    <td>১৯তম রোজা</td>
+                    <td>২০ মার্চ</td>
+                    <td>৪:৩২ পূর্বাহ্ন</td>
+                    <td>৫:৩২ পূর্বাহ্ন</td>
+                    <td>৬:২৮ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-21">
+                    <td>২০তম রোজা</td>
+                    <td>২১ মার্চ</td>
+                    <td>৪:৩১ পূর্বাহ্ন</td>
+                    <td>৫:৩১ পূর্বাহ্ন</td>
+                    <td>৬:২৯ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-22">
+                    <td>২১তম রোজা</td>
+                    <td>২২ মার্চ</td>
+                    <td>৪:৩০ পূর্বাহ্ন</td>
+                    <td>৫:৩০ পূর্বাহ্ন</td>
+                    <td>৬:৩০ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-23">
+                    <td>২২তম রোজা</td>
+                    <td>২৩ মার্চ</td>
+                    <td>৪:২৯ পূর্বাহ্ন</td>
+                    <td>৫:২৯ পূর্বাহ্ন</td>
+                    <td>৬:৩১ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-24">
+                    <td>২৩তম রোজা</td>
+                    <td>২৪ মার্চ</td>
+                    <td>৪:২৮ পূর্বাহ্ন</td>
+                    <td>৫:২৮ পূর্বাহ্ন</td>
+                    <td>৬:৩২ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-25">
+                    <td>২৪তম রোজা</td>
+                    <td>২৫ মার্চ</td>
+                    <td>৪:২৭ পূর্বাহ্ন</td>
+                    <td>৫:২৭ পূর্বাহ্ন</td>
+                    <td>৬:৩৩ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-26">
+                    <td>২৫তম রোজা</td>
+                    <td>২৬ মার্চ</td>
+                    <td>৪:২৬ পূর্বাহ্ন</td>
+                    <td>৫:২৬ পূর্বাহ্ন</td>
+                    <td>৬:৩৪ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-27">
+                    <td>২৬তম রোজা</td>
+                    <td>২৭ মার্চ</td>
+                    <td>৪:২৫ পূর্বাহ্ন</td>
+                    <td>৫:২৫ পূর্বাহ্ন</td>
+                    <td>৬:৩৫ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-28">
+                    <td>২৭তম রোজা</td>
+                    <td>২৮ মার্চ</td>
+                    <td>৪:২৪ পূর্বাহ্ন</td>
+                    <td>৫:২৪ পূর্বাহ্ন</td>
+                    <td>৬:৩৬ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-29">
+                    <td>২৮তম রোজা</td>
+                    <td>২৯ মার্চ</td>
+                    <td>৪:২৩ পূর্বাহ্ন</td>
+                    <td>৫:২৩ পূর্বাহ্ন</td>
+                    <td>৬:৩৭ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-30">
+                    <td>২৯তম রোজা</td>
+                    <td>৩০ মার্চ</td>
+                    <td>৪:২২ পূর্বাহ্ন</td>
+                    <td>৫:২২ পূর্বাহ্ন</td>
+                    <td>৬:৩৮ অপরাহ্ন</td>
+                </tr>
+                <tr data-date="2025-03-31">
+                    <td>৩০তম রোজা</td>
+                    <td>৩১ মার্চ</td>
+                    <td>৪:২১ পূর্বাহ্ন</td>
+                    <td>৫:২১ পূর্বাহ্ন</td>
+                    <td>৬:৩৯ অপরাহ্ন</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // বর্তমান তারিখের উপর ভিত্তি করে হাইলাইট করা
+        function highlightCurrentDay() {
+            const today = new Date(); // আজকের তারিখ (২৭ ফেব্রুয়ারি, ২০২৫)
+            const rows = document.querySelectorAll('#calendarBody tr');
+
+            rows.forEach(row => {
+                const rowDate = new Date(row.getAttribute('data-date'));
+                // তারিখ মিললে হাইলাইট করো
+                if (rowDate.toDateString() === today.toDateString()) {
+                    row.classList.add('highlight');
+                } else {
+                    row.classList.remove('highlight');
+                }
+            });
+
+            // যদি আজ রমজানের মধ্যে না থাকে, প্রথম দিন হাইলাইট করো
+            const ramadanStart = new Date('2025-03-02');
+            const ramadanEnd = new Date('2025-03-31');
+            if (today < ramadanStart || today > ramadanEnd) {
+                rows[0].classList.add('highlight'); // প্রথম রোজা ডিফল্ট হাইলাইট
+            }
+        }
+
+        // পেজ লোড হলে ফাংশন কল করো
+        window.onload = highlightCurrentDay;
+    </script>
+</body>
+</html>
